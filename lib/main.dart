@@ -12,130 +12,79 @@ class Profile extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Swim Journal'),
-        backgroundColor: Colors.blue[200],
-      ) ,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Container(
-            margin: EdgeInsets.symmetric(vertical: 30),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Center(
-                  child: Text(
-                    'User Profile',
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                SizedBox(height: 10), // Optional spacing between text and icon
-                Center(
-                  child: Icon(
-                    Icons.person,
-                    size: 100,
-                    color: Colors.blue[100],
-                  ),
-                ),
-              ],
-            ),
-          ),
+      backgroundColor: Colors.blue[50],
+      body: SafeArea(
+        child: Column(
+          children: [
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.all(50),
+              decoration: BoxDecoration(
+                color: Colors.blue.shade600,
 
-          Container(
-            margin: EdgeInsets.all(10),
-            padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Name:',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Swim Journal",
+                    style: TextStyle(
+                      color: Colors.white70,
+                      fontSize: 18,
+                    ),
                   ),
-                ),
-                Text('Veronica Bancoro',
-                  style: TextStyle(fontStyle: FontStyle.italic),),
-              ],
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-            padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Email:',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18
-                  ),
-                ),
-                Text('veronicabancoro@gmail.com',
-                  style: TextStyle(fontStyle: FontStyle.italic),),
-              ],
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-            padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Company:',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18
-                  ),
-                ),
-                Text('BSU',
-                  style: TextStyle(fontStyle: FontStyle.italic),),
-              ],
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-            padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Contact No.:',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18
-                  ),
-                ),
-                Text('09876543211',
-                  style: TextStyle(fontStyle: FontStyle.italic),),
-              ],
-            ),
-          ),
-           Center(
-            child: Container(
-              width: 300,
-              margin: EdgeInsets.symmetric(vertical: 30),
-                  child:
-                  ElevatedButton(onPressed: (){},
-                    child: Row (
-                      mainAxisAlignment: MainAxisAlignment.center,
+
+                  Center(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Icon(Icons.logout, color: Colors.blue),
-                        Text ('Logout',
-                          style: TextStyle(color: Colors.blue)),
+                        Text(
+                          "Just like life, swimming is about learning to be calm in deep waters.",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 28,
+                            fontWeight: FontWeight.bold,
+                            height: 1.3,
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          "When the world feels heavy, the water lifts me.",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white70,
+                            fontSize: 15,
+                          ),
+                        ),
                       ],
-                    )
+                    ),
                   ),
+                  Center(
+                    child: Container(
+                      width: 100,
+                      margin: EdgeInsets.symmetric(vertical: 30),
+                        child:
+                        ElevatedButton(onPressed: (){},
+                          child: Row (
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.edit, color: Colors.blue),
+                              Text ('Open',
+                                style: TextStyle(color: Colors.blue)),
+                              ],
+                          )
+                        ),
+
+                    ),
+                  ),
+                ],
               ),
             ),
-
-        ],
+          ],
+        ),
       ),
-
     );
+
   }
 }
