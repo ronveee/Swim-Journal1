@@ -25,7 +25,7 @@ class _ListItemsState extends State<ListItems> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue.shade50,
+      backgroundColor: Colors.blue[50],
         appBar: AppBar(
           centerTitle: true,
           title: Text('Swim Journal', style: TextStyle(
@@ -58,6 +58,15 @@ class _ListItemsState extends State<ListItems> {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+          onPressed: (){
+            Navigator.pushNamed(context, '/add');
+          },
+          backgroundColor: Colors.blue[300],        // Button background color
+          foregroundColor: Colors.white,
+          child: Icon(Icons.add),
+
       ),
 
 
