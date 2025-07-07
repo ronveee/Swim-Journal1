@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:swim_journal_1/myPages/ItemCard.dart';
 
-import 'myPages/Pools.dart';
+import 'Pools.dart';
 
 class ListItems extends StatefulWidget {
   const ListItems({super.key});
