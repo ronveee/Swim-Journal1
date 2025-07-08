@@ -1,31 +1,40 @@
-import 'package:http/http.dart';
+import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:intl/intl.dart';
 
 class WorldTime {
+  String location;
+  String time = '';
+  String flag;
+  String url;
+  bool isDaytime = true;
 
-  String location; //location name for the ui
-  String time; // the time in that location
-  String flag;// url asset flag icon
-  String url; //location url for api endpoint
+  WorldTime({
+    required this.location,
+    required this.flag,
+    required this.url,
+    re
+  });
 
-  void getTime() async {
+  Future<void> getTime() async {
+    try {
+      final uri = Uri.parse('https://timeapi.io/api/time/current/zone?timeZone=$url');
+      http.Response response = await http.get(uri);
 
-    //make the request
-    Response response = await get (Uri.parse('https://timeapi.io/api/time/current/zone?timeZone=/$url'),);
-    Map data = jsonDecode(response.body);
-    //print(data);
+      if (response.statusCode == 200) {
+        Map data = jsonDecode(response.body);
+        DateTime now = DateTime.parse(data['dateTime']);
 
-    //get properties from data
-    String datetime = data['datetime'];
-    String offset = data['uts_offset'].substring(1,3);
-    //print(datetime);
-    //print(offset);
-
-    //create Datetime object
-    DateTime now = DateTime.parse(datetime);
-    now = now.add(Duration(hours:int.parse(offset)));
-
-    time = now.toString();
-
+        isDaytime = now.hour > 6 && now.hour < 15 ? true : false;
+        time = DateFormat('EEEE, MMMM d, y - h:mm a').format(now);
+        print(time);
+      } else {
+        time = 'Failed to get time: ${response.statusCode}';
+        print(time);
+      }
+    } catch (e) {
+      time = 'caught error: $e';
+      print(time);
+    }
   }
 }
